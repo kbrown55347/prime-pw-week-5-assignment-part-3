@@ -51,3 +51,23 @@ console.log(findByArtist('Taylor Swift'));
 console.log(findByArtist('Jimi Hendrix'));
 console.log(findByArtist('Jason Mraz'));
 console.log(findByArtist('The Beatles'));
+
+console.log(`******** Stretch Goals ********`);
+
+function search(artist, yearPub) {
+  console.log(`Searching for ${artist} and ${yearPub}`);
+  let list = [];
+  for (let item of collection) {
+    if (artist === item.artist && yearPub === item.yearPub) {
+      list.push(item);
+    } else if (artist === undefined || yearPub === undefined) {
+      return collection;
+    }
+  }
+  return list;
+}
+
+console.log(search('Taylor Swift', 2017));
+console.log(search('Luke Bryan', 2000));
+console.log(search('Jason Mraz'));
+console.log(search());
