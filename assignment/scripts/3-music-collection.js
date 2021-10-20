@@ -21,10 +21,10 @@ console.log('Added album to collection:', addToCollection('No Strings Attached',
 
 console.log(collection);
 
-let showCollection([]) {
-  console.log(showCollection.length());
-  for (info of showCollection) {
-    return `${title} by ${artist}, published in ${yearPub}.`;
+function showCollection(array) {
+  console.log(array.length);
+  for (let info of array) {
+    console.log(`In showCollection: ${info.title} by ${info.artist}, published in ${info.yearPub}.`);
   }
 }
 
