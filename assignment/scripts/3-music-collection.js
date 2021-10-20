@@ -2,6 +2,8 @@ console.log('***** Music Collection *****')
 
 let collection = [];
 
+console.log(`******** In addToCollection ********`);
+
 function addToCollection(title, artist, yearPub) {
   let newAlbum = {
     title: title,
@@ -12,20 +14,40 @@ function addToCollection(title, artist, yearPub) {
   return newAlbum;
 }
 
-console.log('Added album to collection:', addToCollection('reputation', 'Taylor Swift', 2017));
-console.log('Added album to collection:', addToCollection('Fearless', 'Taylor Swift', 2008));
-console.log('Added album to collection:', addToCollection('Let It Be', 'The Beatles', 1968));
-console.log('Added album to collection:', addToCollection('We Sing. We Dance. We Steal Things.', 'Jason Mraz', 2008));
-console.log('Added album to collection:', addToCollection('Waiting for My Rocket to Come', 'Jason Mraz', 2002));
-console.log('Added album to collection:', addToCollection('No Strings Attached', 'NSYNC', 2000));
+console.log('Album added:', addToCollection('reputation', 'Taylor Swift', 2017));
+console.log('Album added:', addToCollection('Fearless', 'Taylor Swift', 2008));
+console.log('Album added:', addToCollection('Let It Be', 'The Beatles', 1968));
+console.log('Album added:', addToCollection('We Sing. We Dance. We Steal Things.', 'Jason Mraz', 2008));
+console.log('Album added:', addToCollection('Waiting for My Rocket to Come', 'Jason Mraz', 2002));
+console.log('Album added:', addToCollection('No Strings Attached', 'NSYNC', 2000));
 
-console.log(collection);
+console.log('Check out my collection:', collection);
+
+console.log(`******** In showCollection ********`);
 
 function showCollection(array) {
-  console.log(array.length);
+  console.log(`Number of albums: ${array.length}`);
   for (let info of array) {
-    console.log(`In showCollection: ${info.title} by ${info.artist}, published in ${info.yearPub}.`);
+    console.log(`${info.title} by ${info.artist}, published in ${info.yearPub}`);
   }
 }
 
 showCollection(collection);
+
+console.log(`******** In findByArtist ********`);
+
+function findByArtist(artist) {
+  console.log(`Albums by ${artist}`);
+  let artistList = [];
+  for (let item of collection) {
+    if (artist === item.artist) {
+      artistList.push(item);
+    }
+  }
+  return artistList;
+}
+
+console.log(findByArtist('Taylor Swift'));
+console.log(findByArtist('Jimi Hendrix'));
+console.log(findByArtist('Jason Mraz'));
+console.log(findByArtist('The Beatles'));
