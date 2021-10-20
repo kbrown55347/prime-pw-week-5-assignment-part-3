@@ -71,3 +71,15 @@ console.log(search('Taylor Swift', 2017));
 console.log(search('Luke Bryan', 2000));
 console.log(search('Jason Mraz'));
 console.log(search());
+
+
+addToCollection = function(title, artist, yearPub, tracks) {
+  let newAlbum = {
+    title: title,
+    artist: artist,
+    yearPub: yearPub,
+    tracks: []
+  }
+  collection.push(newAlbum);
+  return newAlbum;
+}
