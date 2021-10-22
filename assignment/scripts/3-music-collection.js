@@ -142,23 +142,35 @@ console.log(findByArtist('Taylor Swift'));
 console.log(findByArtist('Jimi Hendrix'));
 console.log(findByArtist('Jason Mraz'));
 console.log(findByArtist('The Beatles'));
+console.log(findByArtist('NSYNC'));
 
 console.log(`******** Stretch Goals ********`);
 
-function search(artist, yearPub) {
-  console.log(`Searching for ${artist} and ${yearPub}`);
+
+function search(artist, yearPub, trackName) {
+  console.log(`Searching for ${artist} and ${yearPub} and ${trackName}`);
   let list = [];
-  for (let item of collection) {
-    if (artist === item.artist && yearPub === item.yearPub) {
-      list.push(item);
-    } else if (artist === undefined || yearPub === undefined) {
+  for (let album of collection) {
+    //within collection - going through each album
+    for (let aTrack of album.tracks) {
+      if (artist === album.artist && yearPub === album.yearPub && trackName === aTrack.name) {
+      list.push(album);
+      }
+      else if (artist === undefined || yearPub === undefined || trackName === undefined) {
       return collection;
     }
+  }
   }
   return list;
 }
 
-console.log(search('Taylor Swift', 2017));
-console.log(search('Luke Bryan', 2000));
+// should return array with 'Waiting for My Rocket to Come' album info
+console.log(search('Jason Mraz', 2002, 'You and I Both'));
+// should return array with 'reputation' album info
+console.log(search('Taylor Swift', 2017, 'I Did Something Bad'));
+// should return empty array
+console.log(search('Luke Bryan', 2000, 'Light It Up'));
+// should return array of all albums in collection
 console.log(search('Jason Mraz'));
+// should return array of all albums in collection
 console.log(search());
