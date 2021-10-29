@@ -119,7 +119,11 @@ console.log(`******** In showCollection ********`);
 function showCollection(array) {
   console.log(`Number of albums: ${array.length}`);
   for (let info of array) {
-    console.log(`${info.title} by ${info.artist}, published in ${info.yearPub}:`, info.tracks);
+    console.log(`${info.title} by ${info.artist}, published in ${info.yearPub}: `);
+    for (let i=0; i<info.tracks.length; i++) {
+      let trackString = `${i+1}. ${info.tracks[i].name}: ${info.tracks[i].duration}`;
+      console.log(`${trackString}`);
+    }
   }
 }
 
